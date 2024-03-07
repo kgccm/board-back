@@ -11,9 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-
-
-
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -74,12 +71,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String authorization = request.getHeader("Authorization");
 
         boolean hasAuthorization = StringUtils.hasText(authorization);
-        if (!hasAuthorization)
-            return null;
+        if (!hasAuthorization) return null;
 
         boolean isBearer = authorization.startsWith("Bearer ");
-        if (!isBearer)
-            return null;
+        if (!isBearer) return null;
 
         String token = authorization.substring(7);
         return token;
