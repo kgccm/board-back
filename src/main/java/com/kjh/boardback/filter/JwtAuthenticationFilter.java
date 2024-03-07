@@ -1,6 +1,8 @@
 package com.kjh.boardback.filter;
 import org.springframework.stereotype.Component;
+
 import com.kjh.boardback.provider.JwtProvider;
+
 import java.io.IOException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -61,6 +63,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+        
 
         filterChain.doFilter(request, response);
 
