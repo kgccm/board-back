@@ -1,10 +1,16 @@
 package com.kjh.boardback.service;
 
+import com.kjh.boardback.dto.request.board.PostBoardRequestDto;
+import com.kjh.boardback.dto.request.board.PostCommentRequestDto;
+import com.kjh.boardback.dto.response.board.*;
 import org.springframework.http.ResponseEntity;
 
-import com.kjh.boardback.dto.request.board.PostBoardRequestDto;
-import com.kjh.boardback.dto.response.board.PostBoardResponseDto;
-
 public interface BoardService {
-    ResponseEntity<? super PostBoardResponseDto> postBoard(PostBoardRequestDto dto, String email);
+    ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber);
+    ResponseEntity<? super PostBoardResponseDto> postBoard(PostBoardRequestDto dto,String email);
+    ResponseEntity<? super PutFavoriteResponseDto> putFavorite(String email,Integer boardNumber);
+    ResponseEntity<? super GetFavoriteListResponseDto> getFavoriteList(Integer boardNumber);
+    ResponseEntity<? super PostCommentResponseDto> postComment(Integer boardNumber, String email, PostCommentRequestDto dto);
+
+    ResponseEntity<? super GetCommentListResponseDto> getCommentList(Integer boardNumber);
 }
