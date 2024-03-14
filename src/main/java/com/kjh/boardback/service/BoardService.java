@@ -13,4 +13,6 @@ public interface BoardService {
     ResponseEntity<? super PostCommentResponseDto> postComment(Integer boardNumber, String email, PostCommentRequestDto dto);
 
     ResponseEntity<? super GetCommentListResponseDto> getCommentList(Integer boardNumber);
+
+    ResponseEntity <? super IncreaseViewCountResponseDto> increaseViewCount(Integer boardNumber);
 }
