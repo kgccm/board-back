@@ -7,12 +7,20 @@ import org.springframework.http.ResponseEntity;
 
 public interface BoardService {
     ResponseEntity<? super GetBoardResponseDto> getBoard(Integer boardNumber);
-    ResponseEntity<? super PostBoardResponseDto> postBoard(PostBoardRequestDto dto,String email);
-    ResponseEntity<? super PutFavoriteResponseDto> putFavorite(String email,Integer boardNumber);
+
+    ResponseEntity<? super PostBoardResponseDto> postBoard(PostBoardRequestDto dto, String email);
+
+    ResponseEntity<? super PutFavoriteResponseDto> putFavorite(String email, Integer boardNumber);
+
     ResponseEntity<? super GetFavoriteListResponseDto> getFavoriteList(Integer boardNumber);
-    ResponseEntity<? super PostCommentResponseDto> postComment(Integer boardNumber, String email, PostCommentRequestDto dto);
+
+    ResponseEntity<? super PostCommentResponseDto> postComment(Integer boardNumber, String email,
+            PostCommentRequestDto dto);
 
     ResponseEntity<? super GetCommentListResponseDto> getCommentList(Integer boardNumber);
 
-    ResponseEntity <? super IncreaseViewCountResponseDto> increaseViewCount(Integer boardNumber);
+    ResponseEntity<? super IncreaseViewCountResponseDto> increaseViewCount(Integer boardNumber);
+
+    ResponseEntity<? super DeleteBoardResponseDto> deleteBoard(Integer boardNumber, String email);
+
 }

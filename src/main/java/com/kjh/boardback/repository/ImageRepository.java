@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.kjh.boardback.entity.ImageEntity;
 
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 
 @Repository
@@ -12,5 +14,6 @@ import java.util.List;
 public interface ImageRepository extends JpaRepository<ImageEntity, Integer>{
 
     List<ImageEntity> findByBoardNumber(Integer boardNumber);
-    
+    @Transactional
+    void deleteByBoardNumber(Integer boardNumber);
 }
