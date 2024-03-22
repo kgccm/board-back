@@ -1,5 +1,6 @@
 package com.kjh.boardback.entity;
 
+import com.kjh.boardback.dto.request.board.PatchBoardRequestDto;
 import com.kjh.boardback.dto.request.board.PostBoardRequestDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,8 +21,9 @@ import java.util.Date;
 @Entity(name = "board")
 @Table(name = "board")
 public class BoardEntity {
-    
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int boardNumber;
 
     private String title;
@@ -29,7 +31,7 @@ public class BoardEntity {
     private String content;
 
     private String writeDatetime;
-    
+
     private int favoriteCount;
 
     private int commentCount;
@@ -38,7 +40,7 @@ public class BoardEntity {
 
     private String writerEmail;
 
-    public BoardEntity(PostBoardRequestDto dto,String email) {
+    public BoardEntity(PostBoardRequestDto dto, String email) {
 
         Date now = Date.from(Instant.now());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -47,21 +49,31 @@ public class BoardEntity {
         this.title = dto.getTitle();
         this.content = dto.getContent();
         this.writeDatetime = writeDateTime;
-        this.favoriteCount =0;
+        this.favoriteCount = 0;
         this.commentCount = 0;
         this.viewCount = 0;
         this.writerEmail = email;
     }
 
-    public void increaseViewCount(){
+    public void increaseViewCount() {
         this.viewCount++;
     }
 
-    public void increaseCommentCount(){
+    public void increaseCommentCount() {
         this.commentCount++;
     }
 
-    public void increaseFavoriteCount(){this.favoriteCount++;}
-    public void decreaseFavoriteCount(){this.favoriteCount--;}
+    public void increaseFavoriteCount() {
+        this.favoriteCount++;
+    }
+
+    public void decreaseFavoriteCount() {
+        this.favoriteCount--;
+    }
+
+     public void patchBoard(PatchBoardRequestDto dto){
+        this.title = dto.getTitle();
+        this.content = dto.getContent();
+    }
 
 }
