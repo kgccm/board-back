@@ -14,10 +14,10 @@ import java.util.List;
 @Getter
 public class GetTop3GeneralRecipeBoardListResponseDto extends ResponseDto {
 
-    private List<RecipeBoardListItem> generalrecipetop5List;
+    private List<RecipeBoardListItem> generalrecipetop3List;
     private GetTop3GeneralRecipeBoardListResponseDto(List<RecipeBoardListViewEntity> boardListViewEntities) {
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
-        this.generalrecipetop5List = RecipeBoardListItem.getList(boardListViewEntities);
+        this.generalrecipetop3List = RecipeBoardListItem.getList(boardListViewEntities);
 
     }
 

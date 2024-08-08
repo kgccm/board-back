@@ -61,7 +61,7 @@ public class RecipeBoardController {
         return response;
     }
 
-    @GetMapping("/{type}/top-5")
+    @GetMapping("/{type}/top-3")
     public ResponseEntity<? extends ResponseDto> getTop5BoardList(
             @PathVariable("type") Integer type
     ) {
