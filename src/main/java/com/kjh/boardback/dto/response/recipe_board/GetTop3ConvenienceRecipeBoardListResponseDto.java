@@ -12,17 +12,17 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 @Getter
-public class GetTop5ConvenienceRecipeBoardListResponseDto extends ResponseDto {
+public class GetTop3ConvenienceRecipeBoardListResponseDto extends ResponseDto {
 
     private List<RecipeBoardListItem> conveniencerecipetop5List;
-    private GetTop5ConvenienceRecipeBoardListResponseDto(List<RecipeBoardListViewEntity> boardListViewEntities) {
+    private GetTop3ConvenienceRecipeBoardListResponseDto(List<RecipeBoardListViewEntity> boardListViewEntities) {
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
         this.conveniencerecipetop5List = RecipeBoardListItem.getList(boardListViewEntities);
 
     }
 
-    public static ResponseEntity<GetTop5ConvenienceRecipeBoardListResponseDto> success(List<RecipeBoardListViewEntity> boardListViewEntities){
-        GetTop5ConvenienceRecipeBoardListResponseDto result = new GetTop5ConvenienceRecipeBoardListResponseDto(boardListViewEntities);
+    public static ResponseEntity<GetTop3ConvenienceRecipeBoardListResponseDto> success(List<RecipeBoardListViewEntity> boardListViewEntities){
+        GetTop3ConvenienceRecipeBoardListResponseDto result = new GetTop3ConvenienceRecipeBoardListResponseDto(boardListViewEntities);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 }

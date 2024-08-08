@@ -246,14 +246,14 @@ public class RecipeBoardServiceImplement implements RecipeBoardService {
 
         } catch (Exception exception) {
             exception.printStackTrace();
-            return GetTop5RecipeBoardListResponseDto.getTop5DatabaseError();
+            return GetTop3RecipeBoardListResponseDto.getTop3DatabaseError();
         }
         if (type == 0){
-            return GetTop5GeneralRecipeBoardListResponseDto.success(boardListViewEntities);
+            return GetTop3GeneralRecipeBoardListResponseDto.success(boardListViewEntities);
         } else if (type == 1) {
-            return GetTop5ConvenienceRecipeBoardListResponseDto.success(boardListViewEntities);
+            return GetTop3ConvenienceRecipeBoardListResponseDto.success(boardListViewEntities);
         }
-        return GetTop5RecipeBoardListResponseDto.getTop5TypeError();
+        return GetTop3RecipeBoardListResponseDto.getTop3TypeError();
     }
 
     @Override
